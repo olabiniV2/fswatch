@@ -103,6 +103,7 @@ func arbitrary(m map[string]bool) string {
 func (l *listeners) triggerUpdateFor(box string) {
 	cmd := exec.Command(l.cmd, box)
 	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
 	e := cmd.Run()
 	if e != nil {
 		fmt.Printf("  error when running command: %v\n", e)
